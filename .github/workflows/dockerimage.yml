@@ -15,4 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file dockerfile --tag nodeimage:$(date +%s)
+    - name: Trivy Scan
+    - uses: homoluctus/gitrivy@v2.0.0
+        with:
+          image: nodeimage:$(date +%s)
