@@ -14,13 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      name: Checkout code
+      
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag nodeimage:$(date +%s)
-  scan:
-    runs-on: ubuntu-latest 
-    steps:  
+  
     - uses: homoluctus/gitrivy@v2.0.0
-    - name: Trivy Scan
+      name: Trivy Scan
       with:
         image: nodeimage:$(date +%s)
          
