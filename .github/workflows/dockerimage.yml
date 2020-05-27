@@ -17,10 +17,13 @@ jobs:
       name: Checkout code
       
     - name: Build the Docker image
-      run: docker build . --file dockerfile --tag nodeimage:$(date +%s)
+      run: docker build . --file dockerfile --tag nodeimage:1
   
     - uses: homoluctus/gitrivy@v2.0.0
       name: Trivy Scan
       with:
         image: nodeimage:$(date +%s)
-         
+    
+    - name: Trivy Scan using authentic scanner
+      run: |
+       docker run aquasec/trivy nodeimage:1    
