@@ -22,8 +22,9 @@ jobs:
     - uses: homoluctus/gitrivy@v2.0.0
       name: Trivy Scan
       with:
-        image: nodeimage:$(date +%s)
+        image: nodeimage:1
     
     - name: Trivy Scan using authentic scanner
       run: |
-       docker run aquasec/trivy nodeimage:1    
+       docker pull aquasec/trivy
+       docker run --rm aquasec/trivy nodeimage:1    
