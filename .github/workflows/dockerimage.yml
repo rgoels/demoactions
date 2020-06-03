@@ -19,10 +19,10 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag nodeimage:1
   
-    - uses: homoluctus/gitrivy@v2.0.0
-      name: Trivy Scan
-      with:
-        image: nodeimage:1
+  #  - uses: homoluctus/gitrivy@v2.0.0
+   #   name: Trivy Scan
+    #  with:
+     #   image: nodeimage:1
     
     - name: Trivy Scan using authentic scanner
       run: |
