@@ -1,4 +1,4 @@
-FROM node:12.4.0-alpine as debug
+FROM node:10 as debug
 
 WORKDIR /work/
 
